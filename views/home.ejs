@@ -11,19 +11,14 @@
             <a href="/products/add-one-image" class="btn btn-outline-dark">Agregar</a>
           </div>
           <hr class="mt-2">
-          <article class="col-12 col-md-6 col-lg-4 p-3">
-            <div class="card">
-              <img src="/images/default-placeholder.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Nombre del producto</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, non.</p>
-                <a href="/products/detail-one-image/1" class="btn btn-sm btn-outline-dark">ver más</a>
-              </div>
-            </div>
-          </article>
+          <% productsOneImage.forEach(product => { %>
+            <%- include('./partials/cardProductOneImage',{
+              ...product
+            }) %>
+        <% }) %>
           <a href="#" class="nav-link">Volver arriba</a>
         </section>
-  
+      
         
         <section class="row mb-5" id="multipleImages" >
           <div class="d-flex justify-content-between align-items-center">
@@ -31,16 +26,11 @@
             <a href="products/add-multiple-images" class="btn btn-outline-dark">Agregar</a>
           </div>
           <hr class="mt-2">
-          <article class="col-12 col-md-6 col-lg-4 p-3">
-            <div class="card">
-              <img src="/images/default-placeholder.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Nombre del producto</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, non.</p>
-                <a href="/products/detail-multiple-images/1" class="btn btn-sm btn-outline-dark">ver más</a>
-              </div>
-            </div>
-          </article>
+          <% productsMultipleImages.forEach(product => { %>
+            <%- include('./partials/cardProductMultipleImages',{
+              ...product
+            }) %>
+        <% }) %>
           <a href="#" class="nav-link">Volver arriba</a>
         </section>
   

@@ -11,16 +11,16 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-4">
-                    <img src="/images/default-placeholder.png"  width="100%"
+                    <img src="/images/<%= image ? image : 'default-placeholder.png' %>"  width="100%"
                       alt="...">
                   </div>
                   <div class="col-8">
                     <h5 class="card-title">
-                      Nombre del producto
+                      <%= name %>
                     </h5>
                     <hr>
                     <p class="card-text">
-                      Descripción
+                      <%= description %>
                     </p>
                   </div>
                 </div>
