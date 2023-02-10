@@ -40,16 +40,11 @@
             <a href="products/add-main-image" class="btn btn-outline-dark">Agregar</a>
           </div>
           <hr class="mt-2">
-          <article class="col-12 col-md-6 col-lg-4 p-3">
-            <div class="card">
-              <img src="/images/default-placeholder.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h4 class="card-title">Nombre del producto</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, non.</p>
-                <a href="/products/detail-main-image/1" class="btn btn-sm btn-outline-dark">ver más</a>
-              </div>
-            </div>
-          </article>
+          <% productsMainImage.forEach(product => { %>
+            <%- include('./partials/cardProductMainImage',{
+              ...product
+            }) %>
+        <% }) %>
           <a href="#" class="nav-link">Volver arriba</a>
         </section>
   

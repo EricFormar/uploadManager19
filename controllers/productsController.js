@@ -63,10 +63,31 @@ module.exports = {
         return res.render('addMainImage')
     },
     storeAddMainImage : (req,res) => {
-        return res.send(req.body)
+
+        const products = readJSON('productsMainImage.json');
+
+        const newProduct = {
+            id : products.length ? products[products.length - 1].id + 1 : 1,
+            name : req.body.name,
+            description : "Lorem ipsum dolor amet sit.",
+            images : req.files.images ? req.files.images.map(file => file.filename) : [],
+            mainImage : req.files.mainImage ? req.files.mainImage[0].filename : null
+        };
+
+        products.push(newProduct);
+
+        writeJSON('productsMainImage.json', products)
+
+        return res.redirect('/')
     },
     detailMainImage : (req,res) => {
-        return res.render('detailMainImage')
+
+        const products = readJSON('productsMainImage.json');
+        const product = products.find(product => product.id === +req.params.id);
+
+        return res.render('detailMainImage',{
+            ...product
+        })
     },
    
 }
