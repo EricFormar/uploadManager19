@@ -51,7 +51,12 @@ module.exports = {
 
     },
     detailMultipleImages : (req,res) => {
-        return res.render('detailMultipleImages')
+
+        const products = readJSON('productsMultipleImages.json');
+        const product = products.find(product => product.id === +req.params.id)
+        return res.render('detailMultipleImages',{
+            ...product
+        })
     },
 
     addMainImage : (req,res) => {

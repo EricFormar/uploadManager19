@@ -6,27 +6,28 @@
     <%- include('./partials/header') %>
       <main >
         <section class="row mt-5">
-          <article class="col-12 col-md-8 col-lg-6 mx-auto">
+          <article class="col-12 col-md-8 mx-auto">
             <div class="card">
               <div class="card-body">
                 <div class="row">
                   <div class="col-5">
-                    <img src="/images/default-placeholder.png"
+                    <img src="/images/<%= images.length ? images[0] : 'default-placeholder.png'%>"
                       class="img-fluid rounded-start" alt="..." id="imgMain">
                     <div class="d-flex justify-content-between mt-2">
-                      <% [1,2,3].forEach(image=> { %>
-                        <img src="/images/default-placeholder.png" width="30%"
-                          class="img-fluid" alt="...">
+                      <% images.forEach(image=> { %>
+                          <img src="/images/<%= image %>" width="30%"
+                          class="img-fluid" alt="..." onclick="document.getElementById('imgMain').setAttribute('src',event.target.src)" style="cursor: pointer;">
+                    
                         <% }) %>
                     </div>
                   </div>
                   <div class="col-7">
                     <h5 class="card-title">
-                      Nombre del producto
+                      <%= name %>
                     </h5>
                     <hr>
                     <p class="card-text">
-                      Descripción
+                      <%= description %>
                     </p>
                   </div>
                 </div>
